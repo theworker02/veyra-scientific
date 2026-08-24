@@ -1,0 +1,13 @@
+experiment doppler {
+    model doppler
+    inputs {
+        frequency = 440 Hz
+        v_source = 20 m/s
+        v_observer = 0 m/s
+        speed_sound = 343 m/s
+    }
+    assert {
+        frequency > 0
+        speed_sound > 0
+    }
+}

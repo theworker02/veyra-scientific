@@ -1,0 +1,20 @@
+{
+  "Experiment": {
+    "prefix": "experiment",
+    "body": [
+      "experiment ${1:name} {",
+      "    model ${2:projectile}",
+      "    inputs {",
+      "        ${3:velocity} = ${4:38} m/s",
+      "    }",
+      "    assert {",
+      "        ${3:velocity} > 0",
+      "    }",
+      "    simulate {",
+      "        duration = ${5:10} s",
+      "    }",
+      "}"
+    ],
+    "description": "A Veyra scientific experiment"
+  }
+}

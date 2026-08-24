@@ -1,0 +1,17 @@
+experiment pendulum {
+    model pendulum
+    constants {
+        g = 9.80665 m/s^2
+        length = 1.0 m
+    }
+    inputs {
+        theta0 = 0.2
+    }
+    assert {
+        length > 0
+        energy_conserved
+    }
+    simulate {
+        duration = 8 s
+    }
+}

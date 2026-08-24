@@ -1,0 +1,15 @@
+experiment shm {
+    model shm
+    inputs {
+        mass = 1 kg
+        stiffness = 16 N/m
+        amplitude = 0.1 m
+    }
+    assert {
+        mass > 0
+        stiffness > 0
+    }
+    simulate {
+        duration = 4 s
+    }
+}

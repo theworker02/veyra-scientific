@@ -1,0 +1,20 @@
+{
+  "name": "veyra-scientific",
+  "description": "A computational laboratory inside Cursor. Don't guess the science. Run it.",
+  "version": "4.7.0",
+  "author": {
+    "name": "theworker02",
+    "url": "https://github.com/theworker02"
+  },
+  "homepage": "https://theworker02.github.io/veyra-scientific/",
+  "repository": "https://github.com/theworker02/veyra-scientific",
+  "license": "MIT",
+  "keywords": ["science", "physics", "mathematics", "laboratory", "mcp", "simulation", "veyra"],
+  "logo": "assets/logo.svg",
+  "skills": "skills",
+  "rules": "rules",
+  "agents": "agents",
+  "commands": "commands",
+  "hooks": "hooks/hooks.json",
+  "mcpServers": "mcp.json"
+}

@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veyra-scientific"
+version = "4.7.0"
+description = "A computational laboratory for Cursor. Don't guess the science. Run it."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "theworker02" }]
+keywords = [
+    "science",
+    "physics",
+    "mathematics",
+    "geometry",
+    "simulation",
+    "cursor",
+    "mcp",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "sympy>=1.12",
+    "pint>=0.23",
+    "mpmath>=1.3",
+    "typer>=0.12",
+    "rich>=13.7",
+    "pydantic>=2.6",
+    "mcp>=1.27,<2",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.scripts]
+veyra = "veyra.cli:app"
+veyra-mcp = "veyra.mcp_server:run"
+
+[project.urls]
+Homepage = "https://github.com/theworker02/veyra-scientific"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+veyra = ["static/workbench/**"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

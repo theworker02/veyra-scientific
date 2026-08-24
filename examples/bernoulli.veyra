@@ -1,0 +1,15 @@
+experiment bernoulli {
+    model bernoulli
+    inputs {
+        density = 1000 kg/m^3
+        v1 = 2.0
+        v2 = 4.0
+        h1 = 3.0
+        h2 = 1.0
+        p1 = 101325 Pa
+    }
+    assert {
+        density > 0
+        v1 > 0
+    }
+}

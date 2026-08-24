@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Veyra: Start Laboratory",
+      "type": "shell",
+      "command": "python -m veyra serve examples",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": false
+      }
+    },
+    {
+      "label": "Veyra: Doctor",
+      "type": "shell",
+      "command": "python hooks/bootstrap.py --dev",
+      "problemMatcher": []
+    },
+    {
+      "label": "Veyra: Run examples",
+      "type": "shell",
+      "command": "python -m veyra test examples",
+      "problemMatcher": []
+    }
+  ]
+}

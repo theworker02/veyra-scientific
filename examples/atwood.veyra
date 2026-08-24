@@ -1,0 +1,11 @@
+experiment atwood {
+    model atwood
+    inputs {
+        m1 = 1.2 kg
+        m2 = 1.0 kg
+    }
+    assert {
+        m1 > 0
+        m2 > 0
+    }
+}

@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, ui-sans-serif, system-ui, sans-serif;
+  --color-canvas: #ffffff;
+  --color-ink: #0d0d0d;
+  --color-graphite: #3c3c3c;
+  --color-slate: #6e6e6e;
+  --color-hairline: #e5e5e5;
+  --color-hairline-dark: #2f2f2f;
+  --color-teal: #10a37f;
+  --color-placeholder: #8e8e8e;
+  --color-rail: #f9f9f9;
+  --color-rail-dark: #171717;
+  --color-stage: #212121;
+  --color-fill: #ececec;
+  --color-composer: #2f2f2f;
+  --ease-instrument: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --default-transition-duration: 180ms;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #0d0d0d;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  font-feature-settings: "tnum" 1, "cv11" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+html.dark body {
+  background: #212121;
+  color: #ececec;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.12);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  transition: background-color 180ms var(--ease-instrument), color 180ms var(--ease-instrument),
+    border-color 180ms var(--ease-instrument), opacity 180ms var(--ease-instrument);
+}
+
+select {
+  appearance: none;
+  padding-right: 2.25rem;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236e6e6e' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+}
+
+textarea {
+  resize: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d1d1;
+  border-radius: 99px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #424242;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

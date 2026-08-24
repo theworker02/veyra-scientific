@@ -1,0 +1,13 @@
+experiment orbital-decay {
+    model orbit
+    inputs {
+        altitude = 400000 m
+        eccentricity = 0.001
+    }
+    assert {
+        altitude > 0
+    }
+    simulate {
+        duration = 7200 s
+    }
+}

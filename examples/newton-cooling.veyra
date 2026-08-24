@@ -1,0 +1,15 @@
+experiment newton-cooling {
+    model cooling
+    inputs {
+        t0 = 363.15 K
+        t_env = 293.15 K
+        k = 0.05
+    }
+    assert {
+        k > 0
+        t0 > t_env
+    }
+    simulate {
+        duration = 120 s
+    }
+}

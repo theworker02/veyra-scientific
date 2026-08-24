@@ -1,0 +1,13 @@
+experiment geometry-validation {
+    model custom
+    constants {
+        side = 2.0 m
+    }
+    equation {
+        square_area = side * side
+    }
+    assert {
+        side > 0
+        square_area == 4
+    }
+}

@@ -1,0 +1,14 @@
+experiment measured-linear {
+    model measure
+    inputs {
+        path = data/linear.csv
+        x = x
+        y = y
+        x_unit = s
+        y_unit = m
+        fit = linear
+    }
+    assert {
+        1 > 0
+    }
+}

@@ -1,0 +1,9 @@
+experiment kepler-period {
+    model kepler
+    inputs {
+        altitude = 400000 m
+    }
+    assert {
+        altitude > 0
+    }
+}

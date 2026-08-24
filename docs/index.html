@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veyra Scientific</title>
+    <meta name="description" content="A Cursor plugin. A computational laboratory. Don't guess the science. Run it." />
+    <link rel="icon" type="image/svg+xml" href="media/favicon.svg" />
+    <link rel="canonical" href="https://theworker02.github.io/veyra-scientific/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+    <style>
+      :root { color-scheme: light; }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: #ffffff; color: #0d0d0d; }
+      body {
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      a { color: inherit; }
+      header, main, footer { max-width: 44rem; margin: 0 auto; padding: 0 1.5rem; }
+      header { padding-top: 4.5rem; padding-bottom: 2.5rem; }
+      .shot {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 1.75rem 0 0;
+        border: 1px solid #e5e5e5;
+        border-radius: 12px;
+      }
+      .caption { margin: 0.6rem 0 0; font-size: 13px; color: #6e6e6e; }
+      .mark { width: 48px; height: 48px; display: block; }
+      h1 {
+        margin: 1.25rem 0 0;
+        font-size: 32px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+      }
+      .tag { margin: 0.75rem 0 0; color: #3c3c3c; font-size: 18px; letter-spacing: -0.01em; }
+      .kicker {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #6e6e6e;
+      }
+      p { color: #3c3c3c; max-width: 42em; }
+      hr { border: 0; border-top: 1px solid #e5e5e5; margin: 2.5rem 0; }
+      .row { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; font-size: 14px; }
+      .row a { color: #6e6e6e; text-decoration: none; }
+      .row a:hover { color: #0d0d0d; }
+      .play {
+        display: inline-flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 1.1rem;
+        border-radius: 12px;
+        background: #10a37f;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .ink {
+        display: inline-flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 1.1rem;
+        border-radius: 12px;
+        background: #0d0d0d;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+      ol { padding-left: 1.2rem; color: #3c3c3c; }
+      li { margin: 0.45rem 0; }
+      table { width: 100%; border-collapse: collapse; font-size: 14px; }
+      td { padding: 0.7rem 0; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+      td:first-child { color: #0d0d0d; font-weight: 500; width: 42%; }
+      td:last-child { color: #6e6e6e; }
+      footer { padding: 2rem 1.5rem 4rem; color: #6e6e6e; font-size: 13px; }
+      footer a { color: #6e6e6e; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img class="mark" src="media/logo.svg" width="48" height="48" alt="Veyra" />
+      <h1>Veyra Scientific</h1>
+      <p class="tag">Don't guess the science. Run it.</p>
+      <img class="shot" src="media/workbench.svg" width="720" height="420" alt="Veyra Workbench chrome with teal Play and a figure frame" />
+      <p class="caption">Workbench at 127.0.0.1:8765. Numbers on a live lab come from the kernel, not this drawing.</p>
+    </header>
+    <main>
+      <p>
+        A Cursor-native reproducible scientific computing environment. Define a version-controlled
+        experiment, validate its dimensions, execute it locally, and preserve the graph, methods,
+        and evidence behind every result. The Agent does not invent numeric results.
+      </p>
+      <div class="actions">
+        <a class="play" href="https://github.com/theworker02/veyra-scientific">Source</a>
+        <a class="ink" href="https://cursor.directory">Cursor Directory</a>
+      </div>
+      <hr />
+      <p class="kicker">Install</p>
+      <ol>
+        <li>Install the Cursor plugin from Directory, Marketplace, or this repository.</li>
+        <li>Reload. First MCP call installs the kernel from this checkout and tries to add the Veyra activity bar.</li>
+        <li>Ask the Agent for <strong>start_laboratory</strong>, or Command Palette → <strong>Veyra: Open Laboratory</strong>.</li>
+      </ol>
+      <p>The Workbench is served even if the activity-bar extension is not installed. Full FEA is not in this laboratory.</p>
+      <hr />
+      <p class="kicker">In Cursor</p>
+      <table>
+        <tbody>
+          <tr><td>MCP start_laboratory</td><td>HTTP lab at 127.0.0.1:8765, no extension required</td></tr>
+          <tr><td>Activity bar</td><td>Open Laboratory, Doctor, Catalog, Run examples</td></tr>
+          <tr><td>MCP</td><td>lab_status, catalog_models, simulate, measure, verify</td></tr>
+          <tr><td>Commands</td><td>/lab /run /verify</td></tr>
+        </tbody>
+      </table>
+      <hr />
+      <p class="kicker">Integrity</p>
+      <p>
+        Numeric truth comes from the kernel. Failed checks are reported. Full FEA is not pretended.
+        MIT licensed.
+      </p>
+      <hr />
+      <p class="kicker">Support</p>
+      <p>
+        Support independent development through
+        <a href="https://github.com/sponsors/theworker02">GitHub Sponsors</a> or
+        <a href="https://thanks.dev/u/gh/theworker02">Thanks.dev</a>.
+      </p>
+    </main>
+    <footer>
+      <div class="row">
+        <a href="https://github.com/theworker02/veyra-scientific">Source</a>
+        <a href="https://github.com/theworker02/veyra-scientific/blob/main/LICENSE">MIT License</a>
+        <a href="https://cursor.com/marketplace/publish">Marketplace</a>
+      </div>
+      <p>Not affiliated with OpenAI.</p>
+    </footer>
+  </body>
+</html>

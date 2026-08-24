@@ -1,0 +1,10 @@
+experiment thin-lens {
+    model lens
+    inputs {
+        focal_length = 0.05 m
+        object_distance = 0.12 m
+    }
+    assert {
+        object_distance > 0
+    }
+}

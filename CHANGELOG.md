@@ -1,0 +1,51 @@
+# Changelog
+
+All notable laboratory changes are recorded here. Version is the kernel version in `src/veyra/core.py`.
+
+## 4.7.0 — Scientific runtime milestone
+
+### Reproducible execution
+
+- Declarative YAML `.veyra` schema with strict validation and legacy brace-format compatibility.
+- Interface-neutral runtime, real experiment graph, streaming lifecycle events, deterministic cache, and structured `.veyr` result artifacts.
+- Shared CLI (`validate`, `graph`, `run`), MCP (`validate_experiment`, `experiment_graph`, `run_experiment`), and Workbench payload metadata.
+- Projectile reference experiment and tests for schema diagnostics, dimensional rejection, graph provenance, cache reuse, and result artifacts.
+
+### Scope boundary
+
+- Resource budgets are recorded but v1 does not claim to enforce operating-system memory, timeout, cancellation, or worker isolation. Future execution brokers must implement and test those controls before exposing them as guarantees.
+
+### Distribution
+
+- Bootstrap now builds the dependency-free Workbench VSIX when it is absent before attempting installation.
+- GitHub Actions validates the extension package; GitHub Pages deploys the existing static site from `docs/`.
+- GitHub Sponsors and Thanks.dev funding are configured for `theworker02`.
+
+## 4.6.0
+
+Directory-ready laboratory. Measurement instrument, methods page, Cursor plugin manifests, MIT license.
+
+### Laboratory
+
+- Overlay of a catalog model on measured CSV uses the **source series** (`x_src` / `y_src`), not the 220-point plot downsample. Newton cooling evaluates on a dense `t_eval` grid (801 points) against the closed form.
+- Workbench Measurement can load a CSV **path** under the laboratory (`GET /api/data-files`, `POST /api/measure` with `path`). Browser file chooser and paste remain.
+- Full FEA is out of scope and is labeled as such. Do not pretend mesh-based structural analysis.
+
+### Cursor plugin
+
+- MCP entry is `scripts/veyra-mcp.py`: installs the kernel from this checkout if `import veyra` fails, then starts stdio MCP.
+- `sessionStart` hook (`hooks/ensure-lab.py`) installs the kernel and tries `cursor --install-extension extensions/veyra-workbench`.
+- MCP `start_laboratory` starts `http://127.0.0.1:8765/` inside the MCP process so Directory users get the Workbench without the activity bar.
+- `veyra install` and **Veyra: Doctor** install kernel and extension from this folder.
+- Plugin skills/agents/commands are canonical at the repo root; `python scripts/sync_plugin.py` mirrors them into `.cursor/`.
+- `.cursor-plugin/plugin.json` follows the documented Cursor schema (no `displayName`).
+
+### Docs and CI
+
+- CHANGELOG and CONTRIBUTING, including Directory / Marketplace / Pages steps after `main` exists on GitHub.
+- Science CI: pytest and `veyra test examples`.
+- Workbench figure on the README and GitHub Pages site.
+
+## Earlier
+
+Projectile with drag, orbits, Kepler, escape, free fall, SHM, Doppler, circular motion, pendulum, oscillator, Bernoulli, heat, RC / RL / LC, thin lens, cooling, decay, Atwood, range tables, Lens, live `.veyra` diagnostics, methods HTML.

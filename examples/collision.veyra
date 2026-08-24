@@ -1,0 +1,14 @@
+experiment collision {
+    model collision
+    inputs {
+        m1 = 2.0 kg
+        m2 = 1.0 kg
+        u1 = 3.0 m/s
+        u2 = -1.0 m/s
+        restitution = 1.0
+    }
+    assert {
+        m1 > 0
+        m2 > 0
+    }
+}

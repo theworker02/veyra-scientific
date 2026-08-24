@@ -1,0 +1,19 @@
+---
+description: When scientific models change, run Veyra instead of guessing results.
+globs: "**/*.{veyra,py,ipynb,jl,m,r}"
+alwaysApply: false
+---
+
+# Scientific Verification Rule
+
+When modifying code containing mathematical, physical, geometric, or statistical models:
+
+1. Identify scientific assumptions.
+2. Invoke Veyra (`verify_model`, `inspect_expression`, `lab_status`, or `python -m veyra test`).
+3. Validate dimensions and units.
+4. Check numerical stability.
+5. Execute applicable `.veyra` experiments with `run_all_experiments_tool` or `veyra test`.
+6. Never fabricate scientific results. If Veyra was not run, say so.
+7. Report failed assumptions explicitly.
+
+Veyra is a deterministic computation engine. Cursor should control it, not replace it.

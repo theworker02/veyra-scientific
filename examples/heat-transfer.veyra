@@ -1,0 +1,13 @@
+experiment heat-transfer {
+    model thermo
+    inputs {
+        pressure = 101325 Pa
+        volume = 0.001 m^3
+        temperature = 298.15 K
+        moles = 0.0403 mol
+    }
+    assert {
+        temperature > 0
+        volume > 0
+    }
+}

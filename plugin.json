@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "veyra-scientific",
+  "version": "4.7.0",
+  "description": "A computational laboratory inside Cursor. Don't guess the science. Run it.",
+  "author": {
+    "name": "theworker02",
+    "url": "https://github.com/theworker02"
+  },
+  "homepage": "https://theworker02.github.io/veyra-scientific/",
+  "repository": "https://github.com/theworker02/veyra-scientific",
+  "license": "MIT",
+  "keywords": ["science", "physics", "mathematics", "laboratory", "mcp", "simulation", "veyra", "cursor"]
+}

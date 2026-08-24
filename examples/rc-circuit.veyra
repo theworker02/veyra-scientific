@@ -1,0 +1,15 @@
+experiment rc-circuit {
+    model rc
+    inputs {
+        resistance = 1000 ohm
+        capacitance = 0.000001 F
+        v_source = 5 V
+    }
+    assert {
+        resistance > 0
+        capacitance > 0
+    }
+    simulate {
+        duration = 0.008 s
+    }
+}

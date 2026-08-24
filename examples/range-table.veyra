@@ -1,0 +1,10 @@
+experiment range-table {
+    model range
+    inputs {
+        velocity = 38.0 m/s
+        drag = 0
+    }
+    assert {
+        velocity > 0
+    }
+}

@@ -1,0 +1,9 @@
+experiment probability {
+    model probability
+    inputs {
+        values = 0.25 0.25 0.25 0.25
+    }
+    assert {
+        1 > 0
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "python hooks/ensure-lab.py"
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "python hooks/after-scientific-edit.py",
+        "matcher": "\\.(py|veyra|ipynb)$"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+experiment rl-circuit {
+    model rl
+    inputs {
+        resistance = 10 ohm
+        inductance = 0.5 H
+        v_source = 12 V
+    }
+    assert {
+        resistance > 0
+        inductance > 0
+    }
+    simulate {
+        duration = 0.4 s
+    }
+}

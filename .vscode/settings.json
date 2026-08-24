@@ -1,0 +1,33 @@
+{
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/.mypy_cache": true,
+    "**/*.egg-info": true,
+    "**/.venv": true,
+    "**/venv": true,
+    "workbench/node_modules": true,
+    "pyproject.toml": true
+  },
+  "files.watcherExclude": {
+    "**/__pycache__/**": true,
+    "**/.pytest_cache/**": true,
+    "**/node_modules/**": true,
+    "**/.venv/**": true
+  },
+  "search.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "workbench/node_modules": true,
+    "**/.venv": true,
+    "pyproject.toml": true
+  },
+  "python.interpreter.infoVisibility": "never",
+  "python.createEnvironment.trigger": "off",
+  "python.terminal.activateEnvironment": false,
+  "python.testing.promptToConfigure": false,
+  "python.testing.autoTestDiscoverOnSaveEnabled": false,
+  "python.testing.pytestEnabled": false,
+  "python-envs.terminal.autoActivationType": "off"
+}

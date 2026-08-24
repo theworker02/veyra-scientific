@@ -1,0 +1,17 @@
+experiment heat-diffusion {
+    model diffusion
+    inputs {
+        length = 0.2 m
+        alpha = 0.0001
+        t_left = 373.15 K
+        t_right = 273.15 K
+        t_init = 293.15 K
+    }
+    assert {
+        length > 0
+        alpha > 0
+    }
+    simulate {
+        duration = 30 s
+    }
+}

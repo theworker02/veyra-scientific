@@ -1,0 +1,19 @@
+experiment fluid-pressure {
+    model fluid
+    constants {
+        g = 9.80665 m/s^2
+        p0 = 101325 Pa
+    }
+    inputs {
+        density = 1000 kg/m^3
+        depth = 10 m
+    }
+    equation {
+        pressure = p0 + density * g * depth
+    }
+    assert {
+        depth > 0
+        density > 0
+        pressure > p0
+    }
+}

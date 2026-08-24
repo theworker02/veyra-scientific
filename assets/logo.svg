@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Veyra">
+  <path d="M6.4 24.2 16 7.6l9.6 16.6" fill="none" stroke="#0d0d0d" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="16" cy="7.6" r="2.05" fill="#10a37f"/>
+  <path d="M10.2 26.4h11.6" fill="none" stroke="#0d0d0d" stroke-width="1.35" stroke-linecap="round" opacity="0.32"/>
+</svg>

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "veyra": {
+      "command": "python",
+      "args": ["scripts/veyra-mcp.py"]
+    }
+  }
+}

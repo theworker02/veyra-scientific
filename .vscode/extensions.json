@@ -1,0 +1,4 @@
+{
+  "recommendations": ["theworker02.veyra-workbench"],
+  "unwantedRecommendations": ["ms-python.vscode-python-envs"]
+}

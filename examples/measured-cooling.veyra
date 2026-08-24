@@ -1,0 +1,19 @@
+experiment measured-cooling {
+    model measure
+    inputs {
+        path = data/cooling.csv
+        x = t
+        y = T
+        x_unit = s
+        y_unit = K
+        fit = none
+        overlay = cooling
+        t0 = 363.15
+        t_env = 293.15
+        k = 0.05
+        duration = 120
+    }
+    assert {
+        1 > 0
+    }
+}

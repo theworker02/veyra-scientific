@@ -1,0 +1,25 @@
+experiment projectile {
+    model projectile
+    constants {
+        g = 9.80665 m/s^2
+    }
+    inputs {
+        velocity = 38.0 ± 0.3 m/s
+        angle = 47 deg
+        drag = 0.15
+    }
+    equation {
+        vx = velocity * cos(angle)
+        vy = velocity * sin(angle)
+    }
+    assert {
+        velocity > 0
+        angle >= 0
+        angle <= 1.5708
+    }
+    simulate {
+        duration = 10 s
+        timestep = adaptive
+        trials = 64
+    }
+}

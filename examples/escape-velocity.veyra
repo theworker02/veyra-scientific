@@ -1,0 +1,9 @@
+experiment escape-velocity {
+    model escape
+    inputs {
+        altitude = 0 m
+    }
+    assert {
+        altitude >= 0
+    }
+}

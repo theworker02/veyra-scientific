@@ -1,0 +1,14 @@
+experiment radioactive-decay {
+    model decay
+    inputs {
+        n0 = 1000
+        half_life = 10 s
+    }
+    assert {
+        n0 > 0
+        half_life > 0
+    }
+    simulate {
+        duration = 40 s
+    }
+}

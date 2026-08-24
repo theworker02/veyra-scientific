@@ -1,0 +1,11 @@
+experiment least-squares {
+    model fit
+    inputs {
+        x = 0 1 2 3 4
+        y = 0.1 2.05 3.9 6.1 8.0
+        fit = linear
+    }
+    assert {
+        1 > 0
+    }
+}

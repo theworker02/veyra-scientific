@@ -1,0 +1,15 @@
+experiment lc-circuit {
+    model lc
+    inputs {
+        inductance = 0.5 H
+        capacitance = 0.000002 F
+        q0 = 0.000001 C
+    }
+    assert {
+        inductance > 0
+        capacitance > 0
+    }
+    simulate {
+        duration = 0.02 s
+    }
+}

@@ -1,0 +1,13 @@
+experiment free-fall {
+    model freefall
+    inputs {
+        y0 = 80 m
+        v0 = 0 m/s
+    }
+    assert {
+        y0 > 0
+    }
+    simulate {
+        duration = 4 s
+    }
+}

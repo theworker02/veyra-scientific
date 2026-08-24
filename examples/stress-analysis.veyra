@@ -1,0 +1,14 @@
+experiment stress-analysis {
+    model stress
+    inputs {
+        force = 12000 N
+        area = 0.004 m^2
+    }
+    equation {
+        stress = force / area
+    }
+    assert {
+        area > 0
+        stress > 0
+    }
+}

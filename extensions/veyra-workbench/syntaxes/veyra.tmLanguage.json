@@ -1,0 +1,11 @@
+{
+  "scopeName": "source.veyra",
+  "name": "Veyra",
+  "patterns": [
+    { "name": "comment.line.number-sign.veyra", "match": "#.*$" },
+    { "name": "keyword.control.veyra", "match": "\\b(experiment|model|constants|inputs|equation|assert|simulate)\\b" },
+    { "name": "constant.numeric.veyra", "match": "\\b\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?\\b" },
+    { "name": "keyword.operator.veyra", "match": "±|\\*|\\/|\\+|\\-|\\=|\\<|\\>|\\*\\*" },
+    { "name": "support.constant.veyra", "match": "\\b(adaptive|deg|rad|m|s|kg|N|Pa|J|K|mol|ohm|F|H|V|A|Hz|W)\\b" }
+  ]
+}

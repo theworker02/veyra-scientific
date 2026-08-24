@@ -1,0 +1,29 @@
+name: projectile-runtime-reference
+version: 1
+
+parameters:
+  velocity:
+    value: 42
+    unit: m/s
+  angle:
+    value: 38
+    unit: deg
+  gravity:
+    value: 9.80665
+    unit: m/s^2
+
+simulation:
+  engine: mechanics.projectile
+  solver: analytic
+
+monte_carlo:
+  samples: 128
+  seed: 182740195
+
+outputs:
+  - range
+  - max_height
+  - flight_time
+
+assert:
+  - expression: range > 0

@@ -1,0 +1,15 @@
+experiment oscillator {
+    model oscillator
+    inputs {
+        mass = 1.0 kg
+        stiffness = 16.0
+        damping = 0.4
+        x0 = 1.0 m
+    }
+    assert {
+        mass > 0
+    }
+    simulate {
+        duration = 8 s
+    }
+}
