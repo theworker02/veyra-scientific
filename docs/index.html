@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Veyra Scientific</title>
-    <meta name="description" content="A Cursor plugin. A computational laboratory. Don't guess the science. Run it." />
+    <meta name="description" content="A reproducible scientific computing environment for Cursor. Don't guess the science. Run it." />
     <link rel="icon" type="image/svg+xml" href="media/favicon.svg" />
     <link rel="canonical" href="https://theworker02.github.io/veyra-scientific/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -92,14 +92,14 @@
       <img class="mark" src="media/logo.svg" width="48" height="48" alt="Veyra" />
       <h1>Veyra Scientific</h1>
       <p class="tag">Don't guess the science. Run it.</p>
-      <img class="shot" src="media/workbench.svg" width="720" height="420" alt="Veyra Workbench chrome with teal Play and a figure frame" />
-      <p class="caption">Workbench at 127.0.0.1:8765. Numbers on a live lab come from the kernel, not this drawing.</p>
+      <img class="shot" src="media/workbench.gif" width="1280" height="800" alt="Veyra Workbench running real local experiments and verification checks" />
+      <p class="caption">A real local Workbench capture. Numeric results come from the Python kernel.</p>
     </header>
     <main>
       <p>
-        A Cursor-native reproducible scientific computing environment. Define a version-controlled
-        experiment, validate its dimensions, execute it locally, and preserve the graph, methods,
-        and evidence behind every result. The Agent does not invent numeric results.
+        Veyra is a Cursor-native computational laboratory. Define an experiment, validate its
+        dimensions, execute it locally, and preserve the graph, methods, diagnostics, and evidence
+        behind every result. Agents present kernel output; they do not invent numeric results.
       </p>
       <div class="actions">
         <a class="play" href="https://github.com/theworker02/veyra-scientific">Source</a>
@@ -109,10 +109,10 @@
       <p class="kicker">Install</p>
       <ol>
         <li>Install the Cursor plugin from Directory, Marketplace, or this repository.</li>
-        <li>Reload. First MCP call installs the kernel from this checkout and tries to add the Veyra activity bar.</li>
-        <li>Ask the Agent for <strong>start_laboratory</strong>, or Command Palette → <strong>Veyra: Open Laboratory</strong>.</li>
+        <li>Reload. First use installs the kernel from this checkout and packages the optional Workbench extension when needed.</li>
+        <li>Ask the Agent for <strong>start_laboratory</strong>, or use Command Palette → <strong>Veyra: Open Laboratory</strong>.</li>
       </ol>
-      <p>The Workbench is served even if the activity-bar extension is not installed. Full FEA is not in this laboratory.</p>
+      <p>The Workbench is served even if the activity-bar extension is not installed. Full finite-element analysis is outside the current scope.</p>
       <hr />
       <p class="kicker">In Cursor</p>
       <table>
@@ -124,7 +124,7 @@
         </tbody>
       </table>
       <hr />
-      <p class="kicker">Integrity</p>
+      <p class="kicker">Scientific integrity</p>
       <p>
         Numeric truth comes from the kernel. Failed checks are reported. Full FEA is not pretended.
         MIT licensed.

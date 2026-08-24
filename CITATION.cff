@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use Veyra Scientific in your work, please cite it using this metadata."
+type: software
+title: "Veyra Scientific"
+version: "4.7.0"
+date-released: 2026-08-24
+authors:
+  - name: "theworker02"
+abstract: "A local-first computational laboratory for reproducible scientific work in Cursor."
+keywords:
+  - scientific computing
+  - reproducibility
+  - simulation
+  - Cursor
+  - MCP
+license: MIT
+repository-code: "https://github.com/theworker02/veyra-scientific"
+url: "https://theworker02.github.io/veyra-scientific/"

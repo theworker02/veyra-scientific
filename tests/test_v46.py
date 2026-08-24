@@ -102,6 +102,7 @@ def test_plugin_is_directory_ready():
     assert (ROOT / "CONTRIBUTING.md").is_file()
     assert (ROOT / "docs" / "index.html").is_file()
     assert (ROOT / "docs" / "media" / "workbench.svg").is_file()
+    assert (ROOT / "docs" / "media" / "workbench.gif").is_file()
     assert (ROOT / ".github" / "workflows" / "ci.yml").is_file()
     pages = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
     funding = (ROOT / ".github" / "FUNDING.yml").read_text(encoding="utf-8")
@@ -109,6 +110,11 @@ def test_plugin_is_directory_ready():
     assert "actions/deploy-pages@v4" in pages
     assert "github: theworker02" in funding
     assert "thanks_dev: u/gh/theworker02" in funding
+    activity_icon = (ROOT / "assets" / "icon-activity.svg").read_text(encoding="utf-8")
+    extension_icon = (ROOT / "extensions" / "veyra-workbench" / "media" / "veyra.svg").read_text(encoding="utf-8")
+    assert 'viewBox="0 0 32 32"' in activity_icon
+    assert 'M10.2 26.4h11.6' in activity_icon
+    assert extension_icon == activity_icon
     check = subprocess.run(
         [sys.executable, str(ROOT / "scripts" / "sync_plugin.py"), "--check"],
         cwd=ROOT,

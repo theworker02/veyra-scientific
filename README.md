@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" width="96" height="96" alt="Veyra Scientific" />
+  <img src="assets/logo.svg" width="88" alt="Veyra logo" />
 </p>
 
 <h1 align="center">Veyra Scientific</h1>
@@ -7,162 +7,238 @@
 <p align="center"><strong>Don't guess the science. Run it.</strong></p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-10a37f?style=flat-square" alt="MIT License" /></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-4.7.0-0d0d0d?style=flat-square" alt="Version 4.7.0" /></a>
-  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/Cursor-plugin-0d0d0d?style=flat-square" alt="Cursor plugin" /></a>
-  <a href="https://theworker02.github.io/veyra-scientific/"><img src="https://img.shields.io/badge/site-GitHub%20Pages-10a37f?style=flat-square" alt="GitHub Pages" /></a>
+  <a href="https://github.com/theworker02/veyra-scientific/actions/workflows/ci.yml"><img src="https://github.com/theworker02/veyra-scientific/actions/workflows/ci.yml/badge.svg" alt="Science CI" /></a>
+  <a href="https://github.com/theworker02/veyra-scientific/releases"><img src="https://img.shields.io/github/v/release/theworker02/veyra-scientific?display_name=tag&label=release" alt="Latest release" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-10a37f.svg" alt="MIT License" /></a>
+  <a href="https://theworker02.github.io/veyra-scientific/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-10a37f.svg" alt="Documentation" /></a>
 </p>
 
-<p align="center">
-  <img src="docs/media/workbench.svg" width="720" alt="Veyra Workbench chrome: Dashboard, catalog chips, teal Play, and a figure frame" />
-</p>
+![The Veyra Workbench running a damped oscillator model, showing results, parameters, and a live event log.](docs/media/workbench.gif)
 
-Veyra is a **Cursor-native reproducible scientific computing environment**. Define a
-version-controlled experiment, validate its schema and dimensions, execute it through the
-local laboratory kernel, inspect its dependency graph, and retain the result, methods, and
-environment evidence. The Agent does not invent numeric results; it reasons only over what the
-kernel actually computed.
+Veyra Scientific is a local-first computational laboratory for reproducible scientific work in Cursor. It combines a Python kernel, a declarative experiment format, an MCP server for agents, a VS Code/Cursor Workbench, and a command-line interface into one verifiable workflow.
 
-Not affiliated with OpenAI. The restraint is the point. Full FEA is out of scope.
+Veyra is built for the point where an explanation needs to become evidence. Define a model, run it against explicit parameters, inspect the generated result, and record which checks passed or failed. The kernel produces numeric results; the interface and agent tools expose those results without inventing them.
 
-## Install in Cursor
+## What Veyra provides
 
-This is the product you submit to [Cursor Directory](https://cursor.directory/plugins/new) and the [Cursor Marketplace](https://cursor.com/marketplace/publish) once the GitHub repository exists. See [CONTRIBUTING.md](CONTRIBUTING.md).
+| Capability | What it does |
+| --- | --- |
+| Reproducible execution | Runs named scientific models with explicit inputs, units, solver settings, and output artifacts. |
+| Declarative experiments | Uses portable `.veyra` YAML files for experiments, expectations, and tolerances. |
+| Scientific verification | Compares computed values against constraints and reports structured pass/fail evidence. |
+| Cursor-native workflows | Provides an MCP server, commands, status information, and an optional Workbench extension. |
+| Local-first operation | Runs locally with no required account, telemetry service, or hosted data store. |
+| Auditable outputs | Records run identifiers, model metadata, metrics, diagnostics, and verification results. |
 
-1. Install the plugin (Directory, Marketplace, or link this folder to `%USERPROFILE%\.cursor\plugins\local\veyra-scientific`).
-2. Reload. The `sessionStart` hook explains first run. The first MCP call and **Veyra: Doctor** run `hooks/bootstrap.py`, which installs the kernel and builds the Workbench VSIX before installing it when Cursor is available.
-3. Ask the Agent to call **`start_laboratory`**, or Command Palette → **Veyra: Open Laboratory** (`Ctrl+Alt+V`) if the activity bar is present.
+## The Workbench
 
-You do not pick a Python interpreter or create a venv from Cursor’s generic project wizard. Doctor and bootstrap own first run.
+The Veyra Workbench is a quiet control room for the local kernel. Start it from Cursor with **Veyra: Open Laboratory** (`Ctrl+Alt+V`), or call `start_laboratory` through MCP. It serves locally at `http://127.0.0.1:8765/`.
 
-A Directory install without the extension still has a laboratory: MCP `start_laboratory` serves the Workbench at `http://127.0.0.1:8765/`.
+The interface includes:
 
-| In Cursor | What it does |
-|---|---|
-| MCP `start_laboratory` | Starts the HTTP lab if it is down (no extension required) |
-| Activity bar **Veyra** | Open Laboratory, Start laboratory, Doctor, Catalog, Run examples |
-| **Veyra: Open Laboratory** | Starts the lab if it is down, then opens the Workbench |
-| **Veyra: Doctor** | Installs kernel and Workbench extension from this folder |
-| MCP `lab_status` | Agent checks whether the lab is running before guessing |
-| **Veyra: New Experiment** (`Ctrl+Alt+E`) | Scaffold a `.veyra` file from the catalog |
-| `/lab` `/run` `/verify` | Slash commands for the same kernel |
+- **Dashboard** — recent runs, kernel status, model health, and verification activity.
+- **Catalog** — available computational models and their supported parameters.
+- **Instruments** — focused controls for configuring and running experiments.
+- **Compare** — side-by-side result inspection and run-to-run deltas.
+- **Notebook** — a traceable record of runs, notes, and exported evidence.
 
-Workbench: `http://127.0.0.1:8765/` after **Open Laboratory** or `start_laboratory`.
+The GIF above is captured from the running local Workbench using the repository's capture script; it is not a mockup.
 
-### How to use the laboratory
+## Scientific runtime
 
-1. Open Laboratory. Dashboard is the figure and the numbers the engine computed.
-2. Catalog searches models. Instruments is math, Lens, units, measured CSV (path or paste), geometry, Fourier.
-3. Notebook holds fingerprinted runs and a methods page you can keep.
-4. Teal **Play** executes. `R` plays, `/` searches, `N` new run, `1`–`5` switch views, `T` theme.
-
-## Plugin layout
-
-Cursor Directory and the Marketplace discover these paths:
-
-| Component | Path |
-|---|---|
-| Cursor manifest | `.cursor-plugin/plugin.json` |
-| Agent Plugins manifest | `plugin.json` |
-| Skills | `skills/*/SKILL.md` |
-| Rules | `rules/*.mdc` |
-| Agents | `agents/*.md` |
-| Commands | `commands/*.md` |
-| Hooks | `hooks/hooks.json` (`sessionStart` + after edit) |
-| MCP | `mcp.json` → `scripts/veyra-mcp.py` |
-| Logo | `assets/logo.svg` |
-| License | [MIT](LICENSE) |
-
-`python scripts/sync_plugin.py` copies skills, agents, commands, and the verification rule body into `.cursor/` for this workspace.
-
-## Status
-
-**v4.7.0** is a working laboratory and reproducible experiment runtime: RK4 drag trajectories, two-body orbits, Kepler periods, escape speed, free fall, SHM, Doppler, circular motion, nonlinear pendulum, damped oscillator, Bernoulli, 1D heat diffusion, RC / RL / LC circuits, thin lenses, Newton cooling, radioactive decay, Atwood, ballistic range tables, catalog sweeps, measured CSV overlay on the model source series, Lens diagnostics, live `.veyra` checks on save, graph-backed declarative experiments, deterministic cache records, and portable `.veyr` evidence artifacts. Full FEA remains future work and is not pretended here.
-
-## Commands
-
-```bash
-python hooks/bootstrap.py --dev
-veyra doctor
-veyra serve examples
-veyra test examples
-veyra run examples/projectile.veyra
-veyra validate examples/runtime-projectile.veyra
-veyra graph examples/runtime-projectile.veyra
-veyra catalog
-veyra init projectile
-veyra measure examples/data/cooling.csv --y-unit K --overlay cooling
-veyra protocol <run-id> --html
-```
-
-## Scientific tests
+Veyra separates model execution from presentation and automation:
 
 ```text
-experiment projectile {
-    model projectile
-    inputs {
-        velocity = 38.0 ± 0.3 m/s
-        angle = 47 deg
-        drag = 0.15
-    }
-    assert { velocity > 0 }
-    simulate { trials = 64 }
-}
+Cursor / CLI / MCP / Workbench
+             │
+             ▼
+        Veyra Python kernel
+             │
+     ┌───────┼────────┐
+     ▼       ▼        ▼
+  models   solvers  verification
+     │       │        │
+     └───────┴────────┘
+             │
+             ▼
+     structured run evidence
 ```
 
-`veyra test` is the suite. Every run is fingerprinted and can be reproduced or diffed.
+The Python kernel is the authority for numeric output. MCP tools and the Workbench can present, save, compare, and verify results, but they do not substitute generated prose for a calculation.
 
-## Declarative experiments and reproducibility
+### Included model families
 
-New `.veyra` files can use the stable, human-readable declarative format. Veyra validates the
-schema, units, engine availability, and explicit solver tolerances before it calls an expensive
-kernel. The original brace-format `.veyra` tests remain supported.
+The catalog currently includes computational models for:
+
+- classical mechanics and orbital dynamics;
+- oscillators, wave motion, and signal analysis;
+- heat transfer and diffusion;
+- fluid and transport approximations;
+- electricity, circuits, and electromagnetism;
+- optics and spectral calculations;
+- probability, statistics, regression, and uncertainty analysis;
+- geometry, numerical methods, and units-aware calculations.
+
+Each model exposes typed parameters, validation rules, result metrics, and model-specific verification logic. The catalog is intentionally extensible: a model is an implementation plus a clear contract, not a loose prompt template.
+
+## Experiments as files
+
+`.veyra` files keep a run's inputs and assertions next to the code or data that motivated it. A minimal experiment looks like this:
 
 ```yaml
-name: projectile-runtime-reference
-version: 1
+name: Damped oscillator baseline
+model: damped_oscillator
 parameters:
-  velocity:
-    value: 42
-    unit: m/s
-  angle:
-    value: 38
-    unit: deg
-  gravity:
-    value: 9.80665
-    unit: m/s^2
-simulation:
-  engine: mechanics.projectile
-  solver: analytic
-monte_carlo:
-  samples: 128
-  seed: 182740195
-outputs:
-  - range
-  - max_height
-  - flight_time
-assert:
-  - expression: range > 0
+  mass: 1.0
+  spring_constant: 12.0
+  damping: 0.4
+  initial_displacement: 0.1
+  initial_velocity: 0.0
+expect:
+  - metric: final_displacement
+    operator: abs_lt
+    value: 0.02
 ```
 
-`veyra graph` exposes the real dependency chain: initial conditions → validation → kernel
-execution → selected outputs → assertions. Deterministic runs are cached under `.veyra/cache/`.
-Each persisted result also has a structured `.veyra/results/<run-id>.veyr` artifact with its
-experiment definition, graph, result, platform, runtime, seed, and reproducibility metadata.
-See [declarative experiments](docs/experiments.md) for the supported schema and limitations.
+Run an experiment with `veyra test`, inspect it in the Workbench, or ask an MCP client to run and verify it. Assertions are evaluated from the actual model output and include the observed value, expected condition, tolerance context, and diagnostic detail.
 
-## Design
+## Installation
 
-See [DESIGN.md](DESIGN.md). Canvas `#ffffff`, ink `#0d0d0d`, slate `#6e6e6e`, hairline `#e5e5e5`, exclusive accent teal `#10a37f`. Inter, weights 400–600, no card stack, no extra hues.
+### Requirements
 
-Brand lives in `assets/`. One mark is copied to the Workbench, the activity bar, GitHub Pages, and this README with `python scripts/render_brand.py`.
+- Python 3.10 or later
+- Cursor or VS Code, for the optional Workbench extension and editor integration
+- Node.js 20+ only when rebuilding the Workbench or extension from source
 
-## Support
+### Install from a checkout
 
-If Veyra is useful to your work, you can support its continued development through [GitHub Sponsors](https://github.com/sponsors/theworker02) or [Thanks.dev](https://thanks.dev/u/gh/theworker02).
+```powershell
+git clone https://github.com/theworker02/veyra-scientific.git
+cd veyra-scientific
+python -m pip install -e ".[dev]"
+veyra doctor
+```
+
+On Windows, use the Python launcher if needed:
+
+```powershell
+py -3 -m pip install -e ".[dev]"
+py -3 -m veyra doctor
+```
+
+`veyra doctor` checks the local installation and reports actionable diagnostics. It does not require a cloud account.
+
+### Install in Cursor
+
+Install the repository as a Cursor plugin from a local checkout, a directory distribution, or the Marketplace when available. The plugin bootstrap installs the kernel from this checkout on first use and packages the optional Workbench extension when an archive is not already present.
+
+Once installed:
+
+1. Open a workspace containing Veyra experiments or models.
+2. Run **Veyra: Open Laboratory** (`Ctrl+Alt+V`) to start the local Workbench.
+3. Use the Veyra MCP tools from an agent, or run experiments through the CLI.
+
+## Command-line workflow
+
+```powershell
+# See installed models and their metadata
+veyra catalog
+
+# Create an experiment from a catalog model
+veyra init damped_oscillator
+
+# Run every declarative experiment under examples/
+veyra test examples
+
+# Start the local Workbench without opening a browser window
+veyra serve examples --no-open
+```
+
+Use `veyra --help` and `veyra <command> --help` for the full command reference.
+
+## MCP workflow
+
+Veyra's MCP server lets Cursor agents use the same local kernel as the CLI and Workbench. Core tools include:
+
+| Tool | Purpose |
+| --- | --- |
+| `lab_status` | Report kernel availability, active run state, and laboratory details. |
+| `start_laboratory` | Start the local Workbench server. |
+| `catalog_models` | List available models and their contracts. |
+| `simulate_*` | Run supported simulations with validated input. |
+| `analyze_measurement` | Analyze a provided measurement series or result. |
+| `verify_model` | Evaluate a model result against explicit checks. |
+
+Agents should describe results as computed evidence, cite failed checks plainly, and avoid extrapolating beyond the model's stated assumptions.
+
+## Verification and scope
+
+Veyra is designed to make ordinary computational work easier to reproduce and inspect. A passing verification means the recorded result met the specific checks in the experiment; it is not a universal claim that a scientific hypothesis is true.
+
+Before relying on a result, review:
+
+- the model's assumptions and parameter bounds;
+- units, initial conditions, and numerical tolerances;
+- diagnostics and failed assertions;
+- whether the model family is appropriate for the physical system.
+
+Full finite-element analysis, safety-critical certification, and high-consequence engineering sign-off are outside the current scope. Validate important work independently and use domain expertise where required.
+
+## Development
+
+```powershell
+# Python test suite
+python -m pytest -q
+
+# Declarative scientific suite
+python -m veyra test examples
+
+# Verify generated plugin files are synchronized
+python scripts/sync_plugin.py --check
+
+# Rebuild the Workbench after changing its source
+cd workbench
+npm ci
+npm run build
+```
+
+Run the documentation and media pipeline after updating brand assets or Workbench screenshots:
+
+```powershell
+python scripts/capture_workbench.py
+python scripts/render_brand.py
+```
+
+`capture_workbench.py` requires a Workbench server on `127.0.0.1:8765`; `render_brand.py` distributes canonical marks and builds `docs/media/workbench.gif` from the captured frames.
+
+## Project layout
+
+```text
+veyra-scientific/
+├── veyra/                         Python kernel, models, solvers, and CLI
+├── mcp_server/                    MCP integration and tool contracts
+├── workbench/                     Local React Workbench
+├── extensions/veyra-workbench/    Cursor/VS Code extension
+├── hooks/                         Cursor plugin bootstrap and lifecycle hooks
+├── examples/                      Declarative .veyra experiment suite
+├── tests/                         Kernel, MCP, packaging, and regression tests
+├── scripts/                       Release, capture, and asset synchronization tools
+├── docs/                          GitHub Pages source and public media
+└── assets/                        Canonical Veyra brand assets
+```
+
+## Documentation and support
+
+- Project site: [theworker02.github.io/veyra-scientific](https://theworker02.github.io/veyra-scientific/)
+- Contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Security policy: [SECURITY.md](SECURITY.md)
+- Changelog: [CHANGELOG.md](CHANGELOG.md)
+- Support: [GitHub Sponsors](https://github.com/sponsors/theworker02) and [Thanks.dev](https://thanks.dev/u/gh/theworker02)
+
+## Contributing
+
+Contributions are welcome when they improve computational correctness, reproducibility, model documentation, test coverage, or the local developer experience. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or pull request. Changes to scientific behavior should include a `.veyra` example or focused regression test whenever practical.
 
 ## License
 
-[MIT](LICENSE). Copyright (c) 2026 theworker02.
-
-Site: [theworker02.github.io/veyra-scientific](https://theworker02.github.io/veyra-scientific/). Changelog: [CHANGELOG.md](CHANGELOG.md).
+Veyra Scientific is released under the [MIT License](LICENSE).
