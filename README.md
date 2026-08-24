@@ -128,6 +128,18 @@ py -3 -m veyra doctor
 
 `veyra doctor` checks the local installation and reports actionable diagnostics. It does not require a cloud account.
 
+### Use Veyra without Cursor
+
+Cursor is optional. Download the `veyra_scientific-4.7.0-py3-none-any.whl` asset from the [latest GitHub release](https://github.com/theworker02/veyra-scientific/releases/latest), then install it locally:
+
+```powershell
+python -m pip install .\veyra_scientific-4.7.0-py3-none-any.whl
+veyra catalog
+veyra serve examples --no-open
+```
+
+This installs the same Python kernel and command-line laboratory used by the Cursor integration. To use the optional activity-bar integration in VS Code or Cursor, download `veyra-workbench-4.7.0.vsix` from that release and choose **Extensions: Install from VSIX…**.
+
 ### Install in Cursor
 
 Install the repository as a Cursor plugin from a local checkout, a directory distribution, or the Marketplace when available. The plugin bootstrap installs the kernel from this checkout on first use and packages the optional Workbench extension when an archive is not already present.

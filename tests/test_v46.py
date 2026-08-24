@@ -71,13 +71,16 @@ def test_methods_page_is_an_artifact():
     assert "<!doctype html>" in page.lower()
 
 
-def test_workspace_hides_python_project_chrome():
+def test_workspace_hides_kernel_implementation_chrome():
     settings = json.loads((ROOT / ".vscode" / "settings.json").read_text(encoding="utf-8"))
     assert settings["python.interpreter.infoVisibility"] == "never"
     assert settings["python.createEnvironment.trigger"] == "off"
     assert settings["files.exclude"]["**/__pycache__"] is True
     assert settings["files.exclude"]["workbench/node_modules"] is True
     assert settings["files.exclude"]["pyproject.toml"] is True
+    extension = json.loads((ROOT / "extensions" / "veyra-workbench" / "package.json").read_text(encoding="utf-8"))
+    assert "onLanguage:python" not in extension["activationEvents"]
+    assert "onLanguage:veyra" in extension["activationEvents"]
 
 
 def test_plugin_is_directory_ready():

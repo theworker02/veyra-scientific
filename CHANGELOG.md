@@ -20,6 +20,13 @@ All notable laboratory changes are recorded here. Version is the kernel version 
 - Bootstrap now builds the dependency-free Workbench VSIX when it is absent before attempting installation.
 - GitHub Actions validates the extension package; GitHub Pages deploys the existing static site from `docs/`.
 - GitHub Sponsors and Thanks.dev funding are configured for `theworker02`.
+- GitHub Release `v4.7.0` ships the Workbench VSIX plus Python wheel and source distribution assets, so the local CLI and Workbench can be used without Cursor.
+
+### Presentation
+
+- Reworked the README and project site into product documentation with installation, architecture, MCP, verification, and scope guidance.
+- Standardized the Veyra mark across the Workbench, extension activity bar, documentation, and release media.
+- Added `CITATION.cff` and a captured Workbench walkthrough GIF.
 
 ## 4.6.0
 

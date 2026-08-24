@@ -15,7 +15,6 @@
   "categories": ["Other", "Data Science", "Testing"],
   "activationEvents": [
     "onStartupFinished",
-    "onLanguage:python",
     "onLanguage:veyra",
     "onCommand:veyra.openWorkbench"
   ],
