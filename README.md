@@ -142,7 +142,9 @@ This installs the same Python kernel and command-line laboratory used by the Cur
 
 ### Install in Cursor
 
-Install the repository as a Cursor plugin from a local checkout, a directory distribution, or the Marketplace when available. The plugin bootstrap installs the kernel from this checkout on first use and packages the optional Workbench extension when an archive is not already present.
+Install from the [Veyra Scientific page on Cursor Directory](https://cursor.directory/plugins/veyra-scientific), or use a local checkout, directory distribution, or Marketplace when available.
+
+The plugin bootstrap installs the kernel from this checkout on first use and packages the optional Workbench extension when an archive is not already present.
 
 Once installed:
 
