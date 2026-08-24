@@ -5,7 +5,7 @@ from veyra.reproduce import reproduce, store
 
 
 def test_version_is_4_2():
-    assert VERSION == "4.7.0"
+    assert VERSION == "4.8.0"
 
 
 def test_cooling_matches_closed_form():
@@ -35,7 +35,7 @@ def test_catalog_includes_42_models():
     payload = catalog_payload()
     ids = {entry["id"] for entry in payload["entries"]}
     assert {"cooling", "decay", "atwood", "projectile"} <= ids
-    assert payload["veyra"] == "4.7.0"
+    assert payload["veyra"] == "4.8.0"
 
 
 def test_sweep_projectile_speed(tmp_path):
@@ -59,7 +59,7 @@ def test_lab_status_reports_kernel():
     from veyra.mcp_server import lab_status_tool
 
     payload = json.loads(lab_status_tool())
-    assert payload["veyra"] == "4.7.0"
+    assert payload["veyra"] == "4.8.0"
     assert payload["laboratory"].startswith("http://127.0.0.1:8765")
     assert isinstance(payload["running"], bool)
     assert payload["models"] >= 4

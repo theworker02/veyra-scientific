@@ -7,7 +7,7 @@ from veyra.physics import simulate_escape, simulate_lc, simulate_lens
 
 
 def test_version_is_4_4():
-    assert VERSION == "4.7.0"
+    assert VERSION == "4.8.0"
 
 
 def test_lc_matches_closed_form():
@@ -42,7 +42,7 @@ def test_catalog_includes_44_models():
     payload = catalog_payload()
     ids = {entry["id"] for entry in payload["entries"]}
     assert {"lc", "lens", "escape", "rl", "kepler"} <= ids
-    assert payload["veyra"] == "4.7.0"
+    assert payload["veyra"] == "4.8.0"
     assert payload["count"] >= 24
 
 

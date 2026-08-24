@@ -134,7 +134,7 @@ def run_experiment(experiment: Experiment) -> VeyraResult:
 def run_path(path: str | Path) -> list[VeyraResult]:
     file = Path(path)
     text = file.read_text(encoding="utf-8")
-    # v4.7 adds a declarative YAML format while retaining every existing
+    # v4.7 introduced a declarative YAML format while retaining every existing
     # brace-format scientific test as a compatible execution path.
     from veyra.runtime import is_declarative_experiment, run_spec_path
 

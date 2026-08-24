@@ -11,7 +11,7 @@ from typing import Any
 
 from veyra.format import format_quantity, integrity_label
 
-VERSION = "4.7.0"
+VERSION = "4.8.0"
 
 RULE = "─" * 40
 

@@ -8,6 +8,7 @@ from typing import Any
 
 from mcp.server.fastmcp import FastMCP
 
+from veyra.agent import run_agent_experiment
 from veyra.core import Check, VeyraResult, render_instrument
 from veyra.dsl import parse_veyra, run_experiment, run_path, run_suite
 from veyra.geometry import (
@@ -327,6 +328,22 @@ def run_experiment_tool(source: str) -> str:
     if not experiments:
         return _out(VeyraResult(ok=False, kind="dsl", title="No experiment"))
     return _out(run_experiment(experiments[0]))
+
+
+@mcp.tool(name="agent_run_experiment")
+def agent_run_experiment_tool(
+    request: str,
+    model: str,
+    parameters: dict[str, Any] | None = None,
+    assertions: list[str] | None = None,
+) -> str:
+    """Run a user-requested catalog experiment for Cursor Agent with validated numeric inputs.
+
+    Use only after the user asks for a calculation or experiment. Parameters use
+    the catalog's documented units; results include the user request, bound
+    inputs, explicit assertions, diagnostics, and a reproducible run id.
+    """
+    return _out(run_agent_experiment(request, model, parameters, assertions))
 
 
 @mcp.tool(name="validate_experiment")

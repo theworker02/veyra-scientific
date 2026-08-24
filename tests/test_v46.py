@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_version_is_4_6():
-    assert VERSION == "4.7.0"
+    assert VERSION == "4.8.0"
 
 
 def test_linear_csv_fit_reports_units():
@@ -86,9 +86,13 @@ def test_workspace_hides_kernel_implementation_chrome():
 def test_plugin_is_directory_ready():
     cursor = json.loads((ROOT / ".cursor-plugin" / "plugin.json").read_text(encoding="utf-8"))
     portable = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))
+    extension = json.loads(
+        (ROOT / "extensions" / "veyra-workbench" / "package.json").read_text(encoding="utf-8")
+    )
     mcp = json.loads((ROOT / "mcp.json").read_text(encoding="utf-8"))
     hooks = json.loads((ROOT / "hooks" / "hooks.json").read_text(encoding="utf-8"))
     assert cursor["name"] == "veyra-scientific"
+    assert cursor["version"] == VERSION
     assert cursor["license"] == "MIT"
     assert cursor["logo"] == "assets/logo.svg"
     assert "displayName" not in cursor
@@ -97,10 +101,14 @@ def test_plugin_is_directory_ready():
     assert "MIT License" in (ROOT / "LICENSE").read_text(encoding="utf-8")
     assert portable["$schema"].startswith("https://agent-plugins.org/")
     assert portable["license"] == "MIT"
+    assert portable["version"] == VERSION
+    assert extension["version"] == VERSION
     assert mcp["mcpServers"]["veyra"]["args"] == ["scripts/veyra-mcp.py"]
     assert "sessionStart" in hooks["hooks"]
     assert (ROOT / "hooks" / "bootstrap.py").is_file()
     assert (ROOT / "scripts" / "veyra-mcp.py").is_file()
+    assert (ROOT / "agents" / "veyra-experiment-runner.md").is_file()
+    assert (ROOT / "commands" / "agent-experiment.md").is_file()
     assert (ROOT / "CHANGELOG.md").is_file()
     assert (ROOT / "CONTRIBUTING.md").is_file()
     assert (ROOT / "docs" / "index.html").is_file()

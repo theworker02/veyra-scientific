@@ -31,6 +31,6 @@
   <path d="M100 460 C 220 458, 340 300, 460 220 S 700 210, 820 390" fill="none" stroke="#10a37f" stroke-width="2"/>
   <path d="M100 460 C 210 455, 320 340, 430 280 S 640 250, 780 420" fill="none" stroke="#0d0d0d" stroke-width="1.2" opacity="0.45"/>
   <text x="80" y="500" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#6e6e6e">Kernel figure · Play runs the model</text>
-  <text x="900" y="500" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#9b9b9b">Veyra 4.7.0</text>
+  <text x="900" y="500" text-anchor="end" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#9b9b9b">Veyra 4.8.0</text>
   <text x="80" y="536" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#9b9b9b">Don't guess the science. Run it.</text>
 </svg>

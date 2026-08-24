@@ -130,15 +130,15 @@ py -3 -m veyra doctor
 
 ### Use Veyra without Cursor
 
-Cursor is optional. Download the `veyra_scientific-4.7.0-py3-none-any.whl` asset from the [latest GitHub release](https://github.com/theworker02/veyra-scientific/releases/latest), then install it locally:
+Cursor is optional. Download the `veyra_scientific-<version>-py3-none-any.whl` asset from the [latest GitHub release](https://github.com/theworker02/veyra-scientific/releases/latest), then install it locally:
 
 ```powershell
-python -m pip install .\veyra_scientific-4.7.0-py3-none-any.whl
+python -m pip install .\veyra_scientific-<version>-py3-none-any.whl
 veyra catalog
 veyra serve examples --no-open
 ```
 
-This installs the same Python kernel and command-line laboratory used by the Cursor integration. To use the optional activity-bar integration in VS Code or Cursor, download `veyra-workbench-4.7.0.vsix` from that release and choose **Extensions: Install from VSIX…**.
+This installs the same Python kernel and command-line laboratory used by the Cursor integration. To use the optional activity-bar integration in VS Code or Cursor, download `veyra-workbench.vsix` from that release and choose **Extensions: Install from VSIX…**.
 
 ### Install in Cursor
 
@@ -180,6 +180,24 @@ Veyra's MCP server lets Cursor agents use the same local kernel as the CLI and W
 | `simulate_*` | Run supported simulations with validated input. |
 | `analyze_measurement` | Analyze a provided measurement series or result. |
 | `verify_model` | Evaluate a model result against explicit checks. |
+| `agent_run_experiment` | Run an explicitly requested catalog experiment for a Cursor agent with bounded numeric inputs, assertions, and recorded provenance. |
+
+### Agent-run experiments in Cursor
+
+When a user asks Cursor to run a supported experiment, the **Veyra Experiment Runner** maps that request to a catalog model and calls `agent_run_experiment`. The tool requires the original request, validates parameter names and catalog bounds before computation, runs only the local Veyra kernel, and records the selected model, inputs, assertions, diagnostics, and run ID. It does not execute shell commands or write experiment files.
+
+For example, an agent can run a projectile model with catalog-unit inputs and make the result evidence-bearing:
+
+```text
+agent_run_experiment(
+  request="Simulate a 42 m/s projectile launched at 38 degrees and check that it travels farther than 100 m.",
+  model="projectile",
+  parameters={"velocity": 42, "angle_deg": 38, "drag_coefficient": 0.0},
+  assertions=["mean_range > 100"]
+)
+```
+
+Use `/agent-experiment` in Cursor to invoke that workflow. The agent must explain the model assumption and report failed checks rather than replace them with a guess.
 
 Agents should describe results as computed evidence, cite failed checks plainly, and avoid extrapolating beyond the model's stated assumptions.
 

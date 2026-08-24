@@ -5,7 +5,7 @@ from veyra.server import lab_health
 
 
 def test_version_is_4_3():
-    assert VERSION == "4.7.0"
+    assert VERSION == "4.8.0"
 
 
 def test_rl_matches_closed_form():
@@ -39,13 +39,13 @@ def test_catalog_includes_43_models():
     payload = catalog_payload()
     ids = {entry["id"] for entry in payload["entries"]}
     assert {"rl", "freefall", "kepler", "rc", "orbit"} <= ids
-    assert payload["veyra"] == "4.7.0"
+    assert payload["veyra"] == "4.8.0"
     assert payload["count"] >= 21
 
 
 def test_lab_health_payload():
     payload = lab_health()
     assert payload["ok"]
-    assert payload["veyra"] == "4.7.0"
+    assert payload["veyra"] == "4.8.0"
     assert payload["models"] >= 21
     assert payload["laboratory"].startswith("http://127.0.0.1:8765")

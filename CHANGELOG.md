@@ -2,6 +2,19 @@
 
 All notable laboratory changes are recorded here. Version is the kernel version in `src/veyra/core.py`.
 
+## 4.8.0 — Cursor agent experiment runner
+
+### Agent execution
+
+- Added `agent_run_experiment`, an MCP tool that lets Cursor agents execute an explicitly requested catalog model through the local Veyra kernel.
+- The agent contract requires the user's stated request, validates model selection, parameter names, numeric values, and catalog bounds before execution, and records all of them with the result.
+- Optional assertions are restricted to numeric metrics returned by the model; unsupported expressions and failed checks remain visible evidence rather than being silently ignored.
+- Added the **Veyra Experiment Runner** agent and `/agent-experiment` command for Cursor, with instructions to ask for material missing inputs and report the run ID, assumptions, metrics, and failures.
+
+### Distribution
+
+- Bumped the kernel, plugin, Workbench, extension, citation metadata, and standalone-install instructions to 4.8.0.
+
 ## 4.7.0 — Scientific runtime milestone
 
 ### Reproducible execution

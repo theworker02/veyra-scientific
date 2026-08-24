@@ -37,7 +37,7 @@ def test_session_json_shape():
     assert "metrics" in card
     assert "integrity" in card
     payload = session_payload([osc], [])
-    assert payload["veyra"] == "4.7.0"
+    assert payload["veyra"] == "4.8.0"
     assert payload["experiments"][0]["run_id"] == osc.run_id
     assert "methods" in card
     assert card["model"] == "oscillator"

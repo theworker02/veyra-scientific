@@ -6,7 +6,7 @@ from veyra.units import convert_quantity
 
 
 def test_version_is_current():
-    assert VERSION == "4.7.0"
+    assert VERSION == "4.8.0"
 
 
 def test_heat_obeys_maximum_principle():

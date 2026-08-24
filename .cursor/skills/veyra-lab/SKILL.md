@@ -27,7 +27,7 @@ Directory install of this plugin ships skills, MCP, rules, commands, and hooks. 
 
 1. If the user wants the UI, check `lab_status`. If the server is down, call `start_laboratory`.
 2. Identify the domain: math, physics, geometry, statistics, or verification.
-3. Call the matching MCP tool, or run `veyra` in the terminal.
+3. For an explicit user-requested catalog run, call `agent_run_experiment`; otherwise call the matching MCP tool or run `veyra` in the terminal.
 4. Reason only over the structured result Veyra returned.
 5. If a `.veyra` file exists, `run_experiment_file` or `veyra run <file>`.
 6. Quote checks, metrics, and the run id. If a check failed, stop and explain the failed assumption.
@@ -35,6 +35,7 @@ Directory install of this plugin ships skills, MCP, rules, commands, and hooks. 
 ## Preferred tools
 
 - Status: `lab_status`, `start_laboratory`
+- Requested agent experiments: `agent_run_experiment` (requires the user's request, a catalog model id, numeric catalog-unit parameters, and optional metric assertions)
 - Equations: `solve_equation`, `simplify_expression`, `differentiate`, `integrate`, `math_console`
 - Dynamics: `simulate_motion`, `simulate_orbit`, `simulate_collision`, `simulate_heat`, `simulate_rc`, `simulate_rl`, `simulate_lc`, `simulate_oscillator`, `simulate_shm`, `simulate_cooling`, `simulate_decay`, `simulate_atwood`, `simulate_freefall`, `simulate_kepler`, `simulate_lens`, `simulate_escape`, `simulate_doppler`, `simulate_circular`, `simulate_range_table`, `sweep_model`
 - Catalog: `catalog_models`, `init_experiment`, then `veyra physics <id> --params '{...}'`

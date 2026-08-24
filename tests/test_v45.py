@@ -7,7 +7,7 @@ from veyra.physics import simulate_circular, simulate_doppler, simulate_shm
 
 
 def test_version_is_4_5():
-    assert VERSION == "4.7.0"
+    assert VERSION == "4.8.0"
 
 
 def test_shm_matches_closed_form():
@@ -45,7 +45,7 @@ def test_catalog_includes_45_models():
     payload = catalog_payload()
     ids = {entry["id"] for entry in payload["entries"]}
     assert {"shm", "doppler", "circular", "lc", "escape"} <= ids
-    assert payload["veyra"] == "4.7.0"
+    assert payload["veyra"] == "4.8.0"
     assert payload["count"] >= 27
 
 

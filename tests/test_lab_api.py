@@ -12,12 +12,12 @@ def test_lab_api_run_and_catalog(tmp_path: Path):
         base = f"http://127.0.0.1:{port}"
         with urlopen(f"{base}/api/catalog") as response:
             catalog = json.loads(response.read())
-        assert catalog["veyra"] == "4.7.0"
+        assert catalog["veyra"] == "4.8.0"
         assert catalog["count"] >= 27
         with urlopen(f"{base}/api/health") as response:
             health = json.loads(response.read())
         assert health["ok"]
-        assert health["veyra"] == "4.7.0"
+        assert health["veyra"] == "4.8.0"
         assert health["models"] >= 27
         request = Request(
             f"{base}/api/run",
