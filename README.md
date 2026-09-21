@@ -1,4 +1,4 @@
-<p align="center">
+﻿<p align="center">
   <img src="assets/logo.svg" width="88" alt="Veyra logo" />
 </p>
 
@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://github.com/theworker02/veyra-scientific/actions/workflows/ci.yml"><img src="https://github.com/theworker02/veyra-scientific/actions/workflows/ci.yml/badge.svg" alt="Science CI" /></a>
   <a href="https://github.com/theworker02/veyra-scientific/releases"><img src="https://img.shields.io/github/v/release/theworker02/veyra-scientific?display_name=tag&label=release" alt="Latest release" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-10a37f.svg" alt="MIT License" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Proprietary%20(source--available)-10a37f.svg" alt="MIT License" /></a>
   <a href="https://theworker02.github.io/veyra-scientific/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-10a37f.svg" alt="Documentation" /></a>
 </p>
 
@@ -36,11 +36,11 @@ The Veyra Workbench is a quiet control room for the local kernel. Start it from 
 
 The interface includes:
 
-- **Dashboard** — recent runs, kernel status, model health, and verification activity.
-- **Catalog** — available computational models and their supported parameters.
-- **Instruments** — focused controls for configuring and running experiments.
-- **Compare** — side-by-side result inspection and run-to-run deltas.
-- **Notebook** — a traceable record of runs, notes, and exported evidence.
+- **Dashboard** â€” recent runs, kernel status, model health, and verification activity.
+- **Catalog** â€” available computational models and their supported parameters.
+- **Instruments** â€” focused controls for configuring and running experiments.
+- **Compare** â€” side-by-side result inspection and run-to-run deltas.
+- **Notebook** â€” a traceable record of runs, notes, and exported evidence.
 
 The GIF above is captured from the running local Workbench using the repository's capture script; it is not a mockup.
 
@@ -50,17 +50,17 @@ Veyra separates model execution from presentation and automation:
 
 ```text
 Cursor / CLI / MCP / Workbench
-             │
-             ▼
+             â”‚
+             â–¼
         Veyra Python kernel
-             │
-     ┌───────┼────────┐
-     ▼       ▼        ▼
+             â”‚
+     â”Œâ”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”
+     â–¼       â–¼        â–¼
   models   solvers  verification
-     │       │        │
-     └───────┴────────┘
-             │
-             ▼
+     â”‚       â”‚        â”‚
+     â””â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+             â”‚
+             â–¼
      structured run evidence
 ```
 
@@ -138,7 +138,7 @@ veyra catalog
 veyra serve examples --no-open
 ```
 
-This installs the same Python kernel and command-line laboratory used by the Cursor integration. To use the optional activity-bar integration in VS Code or Cursor, download `veyra-workbench.vsix` from that release and choose **Extensions: Install from VSIX…**.
+This installs the same Python kernel and command-line laboratory used by the Cursor integration. To use the optional activity-bar integration in VS Code or Cursor, download `veyra-workbench.vsix` from that release and choose **Extensions: Install from VSIXâ€¦**.
 
 ### Install in Cursor
 
@@ -247,16 +247,16 @@ python scripts/render_brand.py
 
 ```text
 veyra-scientific/
-├── veyra/                         Python kernel, models, solvers, and CLI
-├── mcp_server/                    MCP integration and tool contracts
-├── workbench/                     Local React Workbench
-├── extensions/veyra-workbench/    Cursor/VS Code extension
-├── hooks/                         Cursor plugin bootstrap and lifecycle hooks
-├── examples/                      Declarative .veyra experiment suite
-├── tests/                         Kernel, MCP, packaging, and regression tests
-├── scripts/                       Release, capture, and asset synchronization tools
-├── docs/                          GitHub Pages source and public media
-└── assets/                        Canonical Veyra brand assets
+â”œâ”€â”€ veyra/                         Python kernel, models, solvers, and CLI
+â”œâ”€â”€ mcp_server/                    MCP integration and tool contracts
+â”œâ”€â”€ workbench/                     Local React Workbench
+â”œâ”€â”€ extensions/veyra-workbench/    Cursor/VS Code extension
+â”œâ”€â”€ hooks/                         Cursor plugin bootstrap and lifecycle hooks
+â”œâ”€â”€ examples/                      Declarative .veyra experiment suite
+â”œâ”€â”€ tests/                         Kernel, MCP, packaging, and regression tests
+â”œâ”€â”€ scripts/                       Release, capture, and asset synchronization tools
+â”œâ”€â”€ docs/                          GitHub Pages source and public media
+â””â”€â”€ assets/                        Canonical Veyra brand assets
 ```
 
 ## Documentation and support
@@ -273,4 +273,5 @@ Contributions are welcome when they improve computational correctness, reproduci
 
 ## License
 
-Veyra Scientific is released under the [MIT License](LICENSE).
+**Source-available proprietary** — evaluation under [LICENSE](./LICENSE); commercial / production use via [COMMERCIAL.md](./COMMERCIAL.md). See [LICENSE_TRANSITION_NOTICE.md](./LICENSE_TRANSITION_NOTICE.md) and [NOTICE](./NOTICE).
+

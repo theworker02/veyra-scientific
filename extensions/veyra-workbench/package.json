@@ -1,109 +1,146 @@
-{
-  "name": "veyra-workbench",
-  "displayName": "Veyra Scientific",
-  "description": "Computational laboratory inside Cursor. Don't guess the science. Run it.",
-  "version": "4.8.0",
-  "publisher": "theworker02",
-  "license": "MIT",
-  "homepage": "https://theworker02.github.io/veyra-scientific/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/theworker02/veyra-scientific"
-  },
-  "icon": "media/icon.png",
-  "engines": { "vscode": "^1.90.0" },
-  "categories": ["Other", "Data Science", "Testing"],
-  "activationEvents": [
-    "onStartupFinished",
-    "onLanguage:veyra",
-    "onCommand:veyra.openWorkbench"
-  ],
-  "main": "./extension.js",
-  "contributes": {
-    "commands": [
-      { "command": "veyra.openWorkbench", "title": "Veyra: Open Laboratory", "icon": "$(play)" },
-      { "command": "veyra.openInLab", "title": "Veyra: Open in Laboratory" },
-      { "command": "veyra.startLab", "title": "Veyra: Start Laboratory" },
-      { "command": "veyra.runExperiment", "title": "Veyra: Run Experiment" },
-      { "command": "veyra.runAllTests", "title": "Veyra: Run All Scientific Tests" },
-      { "command": "veyra.doctor", "title": "Veyra: Doctor" },
-      { "command": "veyra.catalog", "title": "Veyra: Catalog" },
-      { "command": "veyra.newExperiment", "title": "Veyra: New Experiment", "icon": "$(file-add)" }
-    ],
-    "keybindings": [
-      {
-        "command": "veyra.openWorkbench",
-        "key": "ctrl+alt+v",
-        "mac": "cmd+alt+v"
-      },
-      {
-        "command": "veyra.newExperiment",
-        "key": "ctrl+alt+e",
-        "mac": "cmd+alt+e"
-      }
-    ],
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "veyra",
-          "title": "Veyra",
-          "icon": "media/veyra.svg"
-        }
-      ]
-    },
-    "views": {
-      "veyra": [
-        {
-          "id": "veyra.lab",
-          "name": "Laboratory"
-        }
-      ]
-    },
-    "menus": {
-      "editor/title": [
-        {
-          "command": "veyra.runExperiment",
-          "when": "resourceExtname == .veyra",
-          "group": "navigation"
-        },
-        {
-          "command": "veyra.openInLab",
-          "when": "resourceExtname == .veyra",
-          "group": "navigation"
-        }
-      ],
-      "view/title": [
-        {
-          "command": "veyra.openWorkbench",
-          "when": "view == veyra.lab",
-          "group": "navigation"
-        },
-        {
-          "command": "veyra.newExperiment",
-          "when": "view == veyra.lab",
-          "group": "navigation"
-        }
-      ]
-    },
-    "languages": [
-      {
-        "id": "veyra",
-        "aliases": ["Veyra", "veyra"],
-        "extensions": [".veyra"]
-      }
-    ],
-    "grammars": [
-      {
-        "language": "veyra",
-        "scopeName": "source.veyra",
-        "path": "./syntaxes/veyra.tmLanguage.json"
-      }
-    ],
-    "snippets": [
-      {
-        "language": "veyra",
-        "path": "./snippets/veyra.json"
-      }
-    ]
-  }
+﻿{
+    "name":  "veyra-workbench",
+    "displayName":  "Veyra Scientific",
+    "description":  "Computational laboratory inside Cursor. Don\u0027t guess the science. Run it.",
+    "version":  "4.8.0",
+    "publisher":  "theworker02",
+    "license":  "SEE LICENSE IN LICENSE",
+    "homepage":  "https://theworker02.github.io/veyra-scientific/",
+    "repository":  {
+                       "type":  "git",
+                       "url":  "https://github.com/theworker02/veyra-scientific"
+                   },
+    "icon":  "media/icon.png",
+    "engines":  {
+                    "vscode":  "^1.90.0"
+                },
+    "categories":  [
+                       "Other",
+                       "Data Science",
+                       "Testing"
+                   ],
+    "activationEvents":  [
+                             "onStartupFinished",
+                             "onLanguage:veyra",
+                             "onCommand:veyra.openWorkbench"
+                         ],
+    "main":  "./extension.js",
+    "contributes":  {
+                        "commands":  [
+                                         {
+                                             "command":  "veyra.openWorkbench",
+                                             "title":  "Veyra: Open Laboratory",
+                                             "icon":  "$(play)"
+                                         },
+                                         {
+                                             "command":  "veyra.openInLab",
+                                             "title":  "Veyra: Open in Laboratory"
+                                         },
+                                         {
+                                             "command":  "veyra.startLab",
+                                             "title":  "Veyra: Start Laboratory"
+                                         },
+                                         {
+                                             "command":  "veyra.runExperiment",
+                                             "title":  "Veyra: Run Experiment"
+                                         },
+                                         {
+                                             "command":  "veyra.runAllTests",
+                                             "title":  "Veyra: Run All Scientific Tests"
+                                         },
+                                         {
+                                             "command":  "veyra.doctor",
+                                             "title":  "Veyra: Doctor"
+                                         },
+                                         {
+                                             "command":  "veyra.catalog",
+                                             "title":  "Veyra: Catalog"
+                                         },
+                                         {
+                                             "command":  "veyra.newExperiment",
+                                             "title":  "Veyra: New Experiment",
+                                             "icon":  "$(file-add)"
+                                         }
+                                     ],
+                        "keybindings":  [
+                                            {
+                                                "command":  "veyra.openWorkbench",
+                                                "key":  "ctrl+alt+v",
+                                                "mac":  "cmd+alt+v"
+                                            },
+                                            {
+                                                "command":  "veyra.newExperiment",
+                                                "key":  "ctrl+alt+e",
+                                                "mac":  "cmd+alt+e"
+                                            }
+                                        ],
+                        "viewsContainers":  {
+                                                "activitybar":  [
+                                                                    {
+                                                                        "id":  "veyra",
+                                                                        "title":  "Veyra",
+                                                                        "icon":  "media/veyra.svg"
+                                                                    }
+                                                                ]
+                                            },
+                        "views":  {
+                                      "veyra":  [
+                                                    {
+                                                        "id":  "veyra.lab",
+                                                        "name":  "Laboratory"
+                                                    }
+                                                ]
+                                  },
+                        "menus":  {
+                                      "editor/title":  [
+                                                           {
+                                                               "command":  "veyra.runExperiment",
+                                                               "when":  "resourceExtname == .veyra",
+                                                               "group":  "navigation"
+                                                           },
+                                                           {
+                                                               "command":  "veyra.openInLab",
+                                                               "when":  "resourceExtname == .veyra",
+                                                               "group":  "navigation"
+                                                           }
+                                                       ],
+                                      "view/title":  [
+                                                         {
+                                                             "command":  "veyra.openWorkbench",
+                                                             "when":  "view == veyra.lab",
+                                                             "group":  "navigation"
+                                                         },
+                                                         {
+                                                             "command":  "veyra.newExperiment",
+                                                             "when":  "view == veyra.lab",
+                                                             "group":  "navigation"
+                                                         }
+                                                     ]
+                                  },
+                        "languages":  [
+                                          {
+                                              "id":  "veyra",
+                                              "aliases":  [
+                                                              "Veyra",
+                                                              "veyra"
+                                                          ],
+                                              "extensions":  [
+                                                                 ".veyra"
+                                                             ]
+                                          }
+                                      ],
+                        "grammars":  [
+                                         {
+                                             "language":  "veyra",
+                                             "scopeName":  "source.veyra",
+                                             "path":  "./syntaxes/veyra.tmLanguage.json"
+                                         }
+                                     ],
+                        "snippets":  [
+                                         {
+                                             "language":  "veyra",
+                                             "path":  "./snippets/veyra.json"
+                                         }
+                                     ]
+                    }
 }
