@@ -36,11 +36,11 @@ The Veyra Workbench is a quiet control room for the local kernel. Start it from 
 
 The interface includes:
 
-- **Dashboard** â€” recent runs, kernel status, model health, and verification activity.
-- **Catalog** â€” available computational models and their supported parameters.
-- **Instruments** â€” focused controls for configuring and running experiments.
-- **Compare** â€” side-by-side result inspection and run-to-run deltas.
-- **Notebook** â€” a traceable record of runs, notes, and exported evidence.
+- **Dashboard** Ã¢â‚¬â€ recent runs, kernel status, model health, and verification activity.
+- **Catalog** Ã¢â‚¬â€ available computational models and their supported parameters.
+- **Instruments** Ã¢â‚¬â€ focused controls for configuring and running experiments.
+- **Compare** Ã¢â‚¬â€ side-by-side result inspection and run-to-run deltas.
+- **Notebook** Ã¢â‚¬â€ a traceable record of runs, notes, and exported evidence.
 
 The GIF above is captured from the running local Workbench using the repository's capture script; it is not a mockup.
 
@@ -50,17 +50,17 @@ Veyra separates model execution from presentation and automation:
 
 ```text
 Cursor / CLI / MCP / Workbench
-             â”‚
-             â–¼
+             Ã¢â€â€š
+             Ã¢â€“Â¼
         Veyra Python kernel
-             â”‚
-     â”Œâ”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”
-     â–¼       â–¼        â–¼
+             Ã¢â€â€š
+     Ã¢â€Å’Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Â¼Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Â
+     Ã¢â€“Â¼       Ã¢â€“Â¼        Ã¢â€“Â¼
   models   solvers  verification
-     â”‚       â”‚        â”‚
-     â””â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-             â”‚
-             â–¼
+     Ã¢â€â€š       Ã¢â€â€š        Ã¢â€â€š
+     Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Â´Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Ëœ
+             Ã¢â€â€š
+             Ã¢â€“Â¼
      structured run evidence
 ```
 
@@ -138,7 +138,7 @@ veyra catalog
 veyra serve examples --no-open
 ```
 
-This installs the same Python kernel and command-line laboratory used by the Cursor integration. To use the optional activity-bar integration in VS Code or Cursor, download `veyra-workbench.vsix` from that release and choose **Extensions: Install from VSIXâ€¦**.
+This installs the same Python kernel and command-line laboratory used by the Cursor integration. To use the optional activity-bar integration in VS Code or Cursor, download `veyra-workbench.vsix` from that release and choose **Extensions: Install from VSIXÃ¢â‚¬Â¦**.
 
 ### Install in Cursor
 
@@ -247,16 +247,16 @@ python scripts/render_brand.py
 
 ```text
 veyra-scientific/
-â”œâ”€â”€ veyra/                         Python kernel, models, solvers, and CLI
-â”œâ”€â”€ mcp_server/                    MCP integration and tool contracts
-â”œâ”€â”€ workbench/                     Local React Workbench
-â”œâ”€â”€ extensions/veyra-workbench/    Cursor/VS Code extension
-â”œâ”€â”€ hooks/                         Cursor plugin bootstrap and lifecycle hooks
-â”œâ”€â”€ examples/                      Declarative .veyra experiment suite
-â”œâ”€â”€ tests/                         Kernel, MCP, packaging, and regression tests
-â”œâ”€â”€ scripts/                       Release, capture, and asset synchronization tools
-â”œâ”€â”€ docs/                          GitHub Pages source and public media
-â””â”€â”€ assets/                        Canonical Veyra brand assets
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ veyra/                         Python kernel, models, solvers, and CLI
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ mcp_server/                    MCP integration and tool contracts
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ workbench/                     Local React Workbench
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ extensions/veyra-workbench/    Cursor/VS Code extension
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ hooks/                         Cursor plugin bootstrap and lifecycle hooks
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ examples/                      Declarative .veyra experiment suite
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ tests/                         Kernel, MCP, packaging, and regression tests
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ scripts/                       Release, capture, and asset synchronization tools
+Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ docs/                          GitHub Pages source and public media
+Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ assets/                        Canonical Veyra brand assets
 ```
 
 ## Documentation and support
@@ -273,7 +273,7 @@ Contributions are welcome when they improve computational correctness, reproduci
 
 ## License
 
-**Source-available proprietary** — evaluation under [LICENSE](./LICENSE); commercial / production use via [COMMERCIAL.md](./COMMERCIAL.md). See [LICENSE_TRANSITION_NOTICE.md](./LICENSE_TRANSITION_NOTICE.md) and [NOTICE](./NOTICE).
+**Source-available proprietary** â€” evaluation under [LICENSE](./LICENSE); commercial / production use via [COMMERCIAL.md](./COMMERCIAL.md). See [LICENSE_TRANSITION_NOTICE.md](./LICENSE_TRANSITION_NOTICE.md) and [NOTICE](./NOTICE).
 
 
 ---
@@ -281,3 +281,7 @@ Contributions are welcome when they improve computational correctness, reproduci
 ## License & acquisition
 
 This project is **proprietary**. Production use, redistribution, and commercial deployment require a written commercial license or completed acquisition. See [LICENSE](./LICENSE) and [ACQUISITION.md](./ACQUISITION.md). Contact [@theworker02](https://github.com/theworker02).
+
+## Acquisition diligence
+
+Buyer-facing diligence materials live in [docs/acquisition/](./docs/acquisition/). Commercial licensing contact path: [COMMERCIAL.md](./COMMERCIAL.md).
