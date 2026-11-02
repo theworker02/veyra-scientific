@@ -93,14 +93,14 @@ def test_plugin_is_directory_ready():
     hooks = json.loads((ROOT / "hooks" / "hooks.json").read_text(encoding="utf-8"))
     assert cursor["name"] == "veyra-scientific"
     assert cursor["version"] == VERSION
-    assert cursor["license"] == "MIT"
+    assert cursor["license"] == "SEE LICENSE IN LICENSE"
     assert cursor["logo"] == "assets/logo.svg"
     assert "displayName" not in cursor
     assert (ROOT / "assets" / "logo.svg").is_file()
     assert (ROOT / "LICENSE").is_file()
-    assert "MIT License" in (ROOT / "LICENSE").read_text(encoding="utf-8")
+    assert "Proprietary License" in (ROOT / "LICENSE").read_text(encoding="utf-8")
     assert portable["$schema"].startswith("https://agent-plugins.org/")
-    assert portable["license"] == "MIT"
+    assert portable["license"] == "SEE LICENSE IN LICENSE"
     assert portable["version"] == VERSION
     assert extension["version"] == VERSION
     assert mcp["mcpServers"]["veyra"]["args"] == ["scripts/veyra-mcp.py"]
