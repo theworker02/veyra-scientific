@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://github.com/theworker02/veyra-scientific/actions/workflows/ci.yml"><img src="https://github.com/theworker02/veyra-scientific/actions/workflows/ci.yml/badge.svg" alt="Science CI" /></a>
   <a href="https://github.com/theworker02/veyra-scientific/releases"><img src="https://img.shields.io/github/v/release/theworker02/veyra-scientific?display_name=tag&label=release" alt="Latest release" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Proprietary%20(source--available)-10a37f.svg" alt="MIT License" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Proprietary%20(source--available)-10a37f.svg" alt="Proprietary License" /></a>
   <a href="https://theworker02.github.io/veyra-scientific/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-10a37f.svg" alt="Documentation" /></a>
 </p>
 
